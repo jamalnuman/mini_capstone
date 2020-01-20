@@ -1,0 +1,16 @@
+{
+  id: product.id,
+  name: product.name, 
+  price: product.price, 
+  is_discounted: product.is_discounted?,
+  tax: product.tax,
+  total: product.total,
+  description: product.description,
+  image_url: product.image_url, #in order for these tags to show in insomnia or any other app, they must be listed here
+  formatted: {
+              price: number_to_currency(product.price),
+              tax: number_to_currency(product.tax),
+              total: number_to_currency(product.total)
+              
+            }
+}

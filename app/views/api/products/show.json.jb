@@ -1,8 +1,1 @@
-{
-  id: @product.id,
-  name: @product.name, 
-  id: @product.id, 
-  price: @product.price, 
-  description: @product.description,
-  image_url: @product.image_url #in order for these tags to show in insomnia or any other app, they must be listed here
-}
+render partial: "product.json.jb", locals: {product: @product}
