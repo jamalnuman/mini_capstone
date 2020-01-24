@@ -4,11 +4,13 @@
   price: product.price, 
   is_discounted: product.is_discounted?,
   tax: product.tax,
+  in_stock: product.in_stock,
   total: product.total,
   description: product.description,
+  supplier_id: product.supplier_id,
   image_url: product.image_url, #in order for these tags to show in insomnia or any other app, they must be listed here
   formatted: {
-              price: number_to_currency(product.price),
+              price: number_to_currency(product.price),#number_to_currency is only avialable in the view and will provide the correct format for displaying price ..the argument is what number_to_currency will display in the correct price syntax
               tax: number_to_currency(product.tax),
               total: number_to_currency(product.total)
               

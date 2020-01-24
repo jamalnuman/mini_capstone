@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Product.create!([
+  {name: "Duck", price: "15.0", image_url: "www.google.com ", description: "example duck", in_stock: nil},
+  {name: "Basketball Green Rubber Duck", price: "7.0", image_url: "https://cdn11.bigcommerce.com/s-nf2x4/images/stencil/500x659/products/99/10291/Basketball-Green-Rubber-Duck-Ad-Line-1__63961.1569186739.jpg?c=2&imbypass=on", description: "Basketball Player Rubber Duck comes in a red or green jersey and has a basketball in one arm.", in_stock: nil},
+  {name: "Boxer Rubber Duck", price: "7.0", image_url: "https://cdn11.bigcommerce.com/s-nf2x4/images/stencil/1280x1280/products/100/10067/Boxer-Rubber-Duck-Adline-3__15274.1568649983.jpg?c=2&imbypass=on&imbypass=on", description: "Boxer Rubber Duck comes with red trunks and a pair of boxing gloves", in_stock: nil},
+  {name: "Batman Rubber Duck", price: "8.0", image_url: "https://cdn11.bigcommerce.com/s-nf2x4/images/stencil/1280x1280/products/704/5019/batman__92483.1527598617.png?c=2&imbypass=on&imbypass=on", description: "Batman Rubber Duck is a masked hero who saves the pond from all villeins, making bath time great again", in_stock: nil},
+  {name: "\"football player rubber duck\"", price: "14.0", image_url: "https://cdn11.bigcommerce.com/s-nf2x4/images/stencil/1280x1280/products/86/10310/Football-Player-Rubber-Duck-Ad-Line-7__35138.1569187559.jpg?c=2&imbypass=on&imbypass=on", description: "Football Rubber Duck comes with a helmet, blue jersey, and a football", in_stock: nil},
+  {name: "Duckinator Rubber Duck", price: "15.0", image_url: "https://cdn11.bigcommerce.com/s-nf2x4/images/stencil/1280x1280/products/132/8691/Duckinator-Rubber-Celebriducks-2__71645.1568055279.jpg?c=2&imbypass=on&imbypass=on", description: "Duckintor Rubber Duck by Celebriducks This guy really is bad to the bath.Hasta la Vista, Ducky!  Parody from the blockbuster Arnold Shwarzenneger film The Terminator", in_stock: nil},
+  {name: "The Finger Rubber Duck", price: "8.0", image_url: "https://cdn11.bigcommerce.com/s-nf2x4/images/stencil/1280x1280/products/787/7385/Finger-Fuck-You-Shopping-Rubber-Duck-Lanco-6__16830.1556757640.jpg?c=2&imbypass=on", description: "Made of 100% natural rubber, Natural Toy, lead free and phthalate free, all organic materials and paint.", in_stock: nil},
+  {name: "Niner Duck ", price: "100.0", image_url: "https://www.amsterdamduckstore.com/wp-content/uploads/2017/06/Rasta-rubber-duck-front-1-400x400.jpg", description: "example duck", in_stock: nil}
+])
