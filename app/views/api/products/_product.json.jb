@@ -7,7 +7,8 @@
   in_stock: product.in_stock,
   total: product.total,
   description: product.description,
-  supplier_id: product.supplier_id,
+  supplier_id: (render partial: "api/suppliers/supplier.json.jb", locals: {supplier: product.supplier}),
+  images: product.images.map { |image| render partial: "api/images/image.json.jb", locals: {image: image} },
   formatted: {
               price: number_to_currency(product.price),#number_to_currency is only avialable in the view and will provide the correct format for displaying price ..the argument is what number_to_currency will display in the correct price syntax
               tax: number_to_currency(product.tax),
