@@ -51,8 +51,12 @@ class Api::ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id]) #remember this returns a string, but under the hood it will be converted to a number.
-    render 'show.json.jb'
+    if current_user
+      @product = Product.find(params[:id]) #remember this returns a string, but under the hood it will be converted to a number.
+      render 'show.json.jb'
+    else
+      render json: {}
+    end
   end
 
   def update
