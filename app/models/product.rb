@@ -4,7 +4,8 @@ class Product < ApplicationRecord
   has_many :images
   has_many :orders
   # def supplier 
-  #   Supplier.find_by(id: self.supplier_id)  
+  #   Supplier.find_by(id: self.supplier_id) #in other words...product = Product.first
+                                                              #product.supplier_id 
   # end
 
 
