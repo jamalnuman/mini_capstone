@@ -9,7 +9,9 @@
     tax: number_to_currency(order.calculate_tax),
     total: number_to_currency(order.calculate_total),
     #number_to_currency is only avialable in the view and will provide the correct format for displaying price ..the argument is what number_to_currency will display in the correct price syntax
-    
+    #order.subtotal
+    #order.tax
+    #order.total..stores in the database 
     
 }
 

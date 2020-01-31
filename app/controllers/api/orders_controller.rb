@@ -1,17 +1,18 @@
 class Api::OrdersController < ApplicationController
   before_action :authenticate_user, only: [:index, :create]
+  #before action means to execute the following before anything else on the page, so authenticate the user only for the index and create action
 
   def index
-    if current_user #meaning if we have a current user logged on..display all their orders
-      @orders = current_user.orders
+    #if current_user #meaning if we have a current user logged on..display all their orders
+      @orders = current_user.orders#have to have a current user, if not, orders is being called on a nil class object and will break the application 
       render 'index.json.jb' #this will refer to the partial file ..in this model named _order.json.jb
-    else
-      render json: [] 
-    end
+    # else
+    #   render json: [], status: :authorized 
+    # end..can be grey out cause this is covered by the authenticate user action in the application_controller file cause of inheritance  
   end
 
  
-def create
+  def create
     #product = Product.find(params[:product_id])
     # calculated_subtotal = product.price * params[:quantity].to_i
     # calculated_tax = calculated_subtotal * 0.09

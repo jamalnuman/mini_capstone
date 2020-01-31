@@ -7,6 +7,7 @@
   # tax: product.tax,
   # total: product.total,
   description: product.description,
+  categories: product.categories.map {|category| category.name},
   supplier_id: (render partial: "api/suppliers/supplier.json.jb", locals: {supplier: product.supplier}),
   images: product.images.map { |image| render partial: "api/images/image.json.jb", locals: {image: image} }, #cause a product has_many images
   formatted: {

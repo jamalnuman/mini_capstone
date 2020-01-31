@@ -3,6 +3,10 @@ class Product < ApplicationRecord
   belongs_to :supplier
   has_many :images
   has_many :orders
+
+
+  has_many :product_categories
+  has_many :categories, through: :product_categories
   # def supplier 
   #   Supplier.find_by(id: self.supplier_id) #in other words...product = Product.first
                                                               #product.supplier_id 

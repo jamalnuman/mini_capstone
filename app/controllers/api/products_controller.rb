@@ -6,6 +6,13 @@ class Api::ProductsController < ApplicationController
     discount_option = params[:discount]
     sort_attribute = params[:sort]
     sort_order = params[:sort_order]
+    category_choice = params[:category]
+
+    if category_choice
+      category = Category.find_by(name: category_choice)
+      @products = category.products
+      
+    end
 
     if search_term
       @products = @products.where("name iLIKE ?", "%#{ search_term }%")
@@ -36,7 +43,7 @@ class Api::ProductsController < ApplicationController
     if @product.save
       render "show.json.jb"
     else
-      p @product.errors.full_messages
+      @product.errors.full_messages
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity#returns a hash with an array of error messages #unprocessable_entity is an error message that is returned to the user 
     end
   end
