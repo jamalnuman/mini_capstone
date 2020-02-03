@@ -17,6 +17,9 @@ class Api::OrdersController < ApplicationController
     # calculated_subtotal = product.price * params[:quantity].to_i
     # calculated_tax = calculated_subtotal * 0.09
     # calculated_total = calculated_subtotal + calculated_tax
+    if current_user 
+      @carted_products = CartedProduct.where(status: "carted", user_id: current_user.id)
+      
 
     @order = Order.new(
                         user_id: current_user.id,

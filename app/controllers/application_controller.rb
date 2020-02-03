@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
-  def current_user
+  def current_user #this method will be available to all the controllers cause all the controllers inherit 
+    #applicationController, which is the name of this class.
     auth_headers = request.headers["Authorization"]
     if auth_headers.present? && auth_headers[/(?<=\A(Bearer ))\S+\z/]
       token = auth_headers[/(?<=\A(Bearer ))\S+\z/]
@@ -28,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin
-    unless current_user && current_user.admin
+    unless current_user && current_user.admin#meaning the current_user.admin must equal the boolean of true
       render json: {}, status: :unauthorized 
     end
   end
