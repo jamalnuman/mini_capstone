@@ -17,29 +17,48 @@ class Api::OrdersController < ApplicationController
     # calculated_subtotal = product.price * params[:quantity].to_i
     # calculated_tax = calculated_subtotal * 0.09
     # calculated_total = calculated_subtotal + calculated_tax
-    if current_user 
-      @carted_products = CartedProduct.where(status: "carted", user_id: current_user.id)
+    # if current_user not needed
+      @carted_products = current_user.cart
+      subtotal = 0
+
+      carted_products.each do |carted_product|
+        subtotal += carted_product.product.price * carted_product.quantity
+      end
+
+      tax = subtotal * 0.09
+      total = subtotal + tax
+
+      @order = Order.new(
+                        user_id: current_user.id, 
+                        subtotal: subtotal, 
+                        tax: tax,
+                        total: total) 
+
+      @order.save
+      render 'show.json.jb'
+
+
       
 
-    @order = Order.new(
-                        user_id: current_user.id,
-                        product_id: params[:product_id],
-                        quantity: params[:quantity],
+    # @order = Order.new(
+    #                     user_id: current_user.id,
+    #                     product_id: params[:product_id],
+    #                     quantity: params[:quantity],
                         # subtotal: calculated_subtotal, 
                         # tax: calculated_tax,
                         # total: calculated_total
-                      )
+                      #)
 
-    @order.calculate_totals#this will go to the models page and execute calculate totals which will then calculate the methods within it and return a total.
-    @order.save
-    render 'show.json.jb'
+    # @order.calculate_totals#this will go to the models page and execute calculate totals which will then calculate the methods within it and return a total.
+    # @order.save
+    # render 'show.json.jb'
   end
     
 
-     def show 
+    def show 
     @order = Order.find(params[:id])#the id refers to the specific order you want to display..that is why there is a wildcard in the routes show action ..check route file
     render 'show.json.jb'
-  end
+    end
 
   end
 

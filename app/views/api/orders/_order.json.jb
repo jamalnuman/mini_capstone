@@ -1,13 +1,13 @@
 {
     id: order.id,
     user_id: order.user_id,#foriegn key of user_id
-    user: (render partial: 'api/users/user.json.jb', locals: {user: order.user} ), #because order belongs to User
-    product_id: order.product_id,  #foriegn key of product
-    product: ( render partial: 'api/products/product.json.jb', locals: {product: order.product} ), #cause order belongs to Product
-    quantity: order.quantity,
-    subtotal: number_to_currency(order.calculate_subtotal),
-    tax: number_to_currency(order.calculate_tax),
-    total: number_to_currency(order.calculate_total),
+    #user: (render partial: 'api/users/user.json.jb', locals: {user: order.user} ), #because order belongs to User
+    #product_id: order.product_id,  #foriegn key of product
+    #product: ( render partial: 'api/products/product.json.jb', locals: {product: order.product} ), #cause order belongs to Product
+    #quantity: order.quantity,
+    subtotal: order.subtotal, 
+    tax: order.tax,
+    total: order.total
     #number_to_currency is only avialable in the view and will provide the correct format for displaying price ..the argument is what number_to_currency will display in the correct price syntax
     #order.subtotal
     #order.tax
