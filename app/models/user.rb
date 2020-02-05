@@ -7,7 +7,7 @@ class User < ApplicationRecord
   
   validates :email, presence: true, uniqueness: true
 
-  def cart 
+  def cart #this method will be executed on a user object, such as current_user, so it makes sense create this in the user's model ..'self' is implied in this method
     carted_products.where(status: 'carted')
   end
 end

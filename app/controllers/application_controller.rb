@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def current_user #this method will be available to all the controllers cause all the controllers inherit 
-    #applicationController, which is the name of this class.
+    #ApplicationController, which is the name of this class.
     auth_headers = request.headers["Authorization"]
     if auth_headers.present? && auth_headers[/(?<=\A(Bearer ))\S+\z/]
       token = auth_headers[/(?<=\A(Bearer ))\S+\z/]
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
-
+  #the following methods are used by the controllers cause the controllers are inheriting these methods from the Application Controller
   def authenticate_user
     unless current_user
       render json: {}, status: :unauthorized

@@ -1,14 +1,14 @@
 {
   id: product.id,
   name: product.name, 
-  #price: product.price, 
-  is_discounted: product.is_discounted?,
-  in_stock: product.in_stock,
-  # tax: product.tax,
-  # total: product.total,
+  price: product.price, 
+  #is_discounted: product.is_discounted?,
+  #in_stock: product.in_stock,
+  tax: product.tax,
+  total: product.total,
   description: product.description,
   categories: product.categories.map {|category| category.name},
-  supplier_id: (render partial: "api/suppliers/supplier.json.jb", locals: {supplier: product.supplier}),
+  supplier: (render partial: "api/suppliers/supplier.json.jb", locals: {supplier: product.supplier}),
   images: product.images.map { |image| render partial: "api/images/image.json.jb", locals: {image: image} }, #cause a product has_many images
   formatted: {
               price: number_to_currency(product.price),#number_to_currency is only avialable in the view and will provide the correct format for displaying price ..the argument is what number_to_currency will display in the correct price syntax

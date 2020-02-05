@@ -1,19 +1,38 @@
 {
-    id: order.id,
-    user_id: order.user_id,#foriegn key of user_id
-    #user: (render partial: 'api/users/user.json.jb', locals: {user: order.user} ), #because order belongs to User
-    #product_id: order.product_id,  #foriegn key of product
-    #product: ( render partial: 'api/products/product.json.jb', locals: {product: order.product} ), #cause order belongs to Product
-    #quantity: order.quantity,
-    subtotal: order.subtotal, 
-    tax: order.tax,
-    total: order.total
-    #number_to_currency is only avialable in the view and will provide the correct format for displaying price ..the argument is what number_to_currency will display in the correct price syntax
-    #order.subtotal
-    #order.tax
-    #order.total..stores in the database 
-    
+
+  id: order.id,
+  user_id: order.user_id,
+  #user: (render partial: "api/users/user.json.jb", locals: {user: order.user} },
+  subtotal: order.subtotal,#subtotal, tax, total are methods created in the controller
+  tax: order.tax,
+  total: order.total,
+  carted_products: order.carted_products.map { |carted_product| render partial: "api/carted_products/carted_product.json.jb", locals: {carted_product: carted_product} }
+
 }
+  
+
+
+
+
+
+
+
+# {
+#     id: order.id,
+#     user_id: order.user_id,#foriegn key of user_id
+#     #user: (render partial: 'api/users/user.json.jb', locals: {user: order.user} ), #because order belongs to User
+#     #product_id: order.product_id,  #foriegn key of product
+#     #product: ( render partial: 'api/products/product.json.jb', locals: {product: order.product} ), #cause order belongs to Product
+#     #quantity: order.quantity,
+#     subtotal: order.subtotal, 
+#     tax: order.tax,
+#     total: order.total
+#     #number_to_currency is only avialable in the view and will provide the correct format for displaying price ..the argument is what number_to_currency will display in the correct price syntax
+#     #order.subtotal
+#     #order.tax
+#     #order.total..stores in the database 
+    
+# }
 
 # {
 #   id: order.id,
